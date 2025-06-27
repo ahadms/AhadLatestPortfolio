@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahad MS | Game Developer Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00ff9d;
+      --secondary: #00b8ff;
+      --dark: #0a0a0a;
+      --light: #f8f9fa;
+      --gray: #1e1e1e;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      scroll-behavior: smooth;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+    }
+    
+    .code-font {
+      font-family: 'Roboto Mono', monospace;
+    }
+    
+    /* Navigation */
+    .navbar {
+      background-color: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+    }
+    
+    .navbar-brand {
+      font-weight: 900;
+      color: var(--primary) !important;
+      font-size: 1.5rem;
+    }
+    
+    .nav-link {
+      color: var(--light) !important;
+      margin: 0 0.5rem;
+      font-weight: 500;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary) !important;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 100%), 
+                  url('https://img.freepik.com/free-vector/digital-technology-banner_23-2148503793.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: fadeInUp 1s ease;
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1.5s ease;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      animation: fadeInUp 2s ease;
+    }
+    
+    .btn-primary-custom {
+      background-color: var(--primary);
+      color: var(--dark);
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    
+    .btn-primary-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 255, 157, 0.2);
+    }
+    
+    .btn-outline-custom {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      background-color: transparent;
+    }
+    
+    .btn-outline-custom:hover {
+      background-color: var(--primary);
+      color: var(--dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 255, 157, 0.2);
+    }
+    
+    /* Sections */
+    .section {
+      padding: 6rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      display: inline-block;
+      position: relative;
+      color: var(--light);
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* About Section */
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    .about-image {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .about-image img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 15px;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .about-text {
+      flex: 2;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    
+    .about-text ul {
+      margin-bottom: 2rem;
+    }
+    
+    .about-text li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .about-text li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+    
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      background-color: var(--gray);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 255, 157, 0.1);
+    }
+    
+    .project-media {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+    }
+    
+    .project-media iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+    }
+    
+    .project-content h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .project-content p {
+      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    /* Contact Section */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: var(--gray);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .form-control {
+      background-color: #2a2a2a;
+      border: none;
+      color: var(--light);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-control:focus {
+      background-color: #2a2a2a;
+      color: var(--light);
+      box-shadow: 0 0 0 0.25rem rgba(0, 255, 157, 0.25);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--gray);
+      padding: 3rem 0;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: var(--light);
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .social-links a {
+      color: var(--light);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--primary);
+    }
+    
+    .copyright {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .section {
+        padding: 4rem 0;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Ahad MS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Unity Game Developer</h1>
+      <p>Creating immersive, impactful experiences across 2D, 3D, AR, VR, and multiplayer platforms</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary-custom">View My Work</a>
+        <a href="#contact" class="btn btn-outline-custom">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="AhadmsProfilepic.jpg" alt="Ahad MS" class="img-fluid">
+        </div>
+        <div class="about-text">
+          <p>
+            Unity Game Developer with a passion for building engaging, impactful, and technically polished experiences across 2D, 3D, AR, VR, and multiplayer platforms. My portfolio includes immersive therapy games and creative interactive experiences — and at the heart of it all is my drive to solve meaningful problems through creativity and code.
+          </p>
+          <p>
+            While working at <strong>Thryv Rehab Solutions</strong>, I contributed to <strong>Pluto</strong> — a cutting-edge neurorehabilitation robot developed in collaboration with IIT Madras and CMC Vellore. It is designed to assist patients recovering from stroke, Parkinson's, accidents, and other neurological conditions through real-time interaction and therapeutic gameplay.
+          </p>
+          <ul>
+            <li>Fix bugs and lead future development of Pluto's main software</li>
+            <li>Design and build Unity-based therapy games to promote motor recovery</li>
+            <li>Develop the Pluto Device Testing Software to evaluate robotic performance and equipment health</li>
+            <li>Implement real-time communication between Unity and Pluto via Serial/Bluetooth protocols</li>
+            <li>Visualize data (range of motion, progress tracking etc.) within the Unity interface</li>
+          </ul>
+          <p>
+            Learn more about Pluto:
+            <br>• <a href="https://r2d2.iitm.ac.in/innovations/pluto" target="_blank" style="color: var(--primary);">IIT Madras Innovation – Pluto</a>
+            <br>• <a href="https://www.thehindu.com/news/national/tamil-nadu/researchers-at-iit-m-and-cmc-vellore-develop-portable-robot-for-hand-rehabilitation/article69108828.ece" target="_blank" style="color: var(--primary);">The Hindu – Pluto Robot</a>
+            <br>• <a href="https://www.cmch-vellore.edu/press-release-pluto-a-revolutionary-stroke-rehab-robot-developed-by-cmc-vellore-and-iit-madras/" target="_blank" style="color: var(--primary);">CMC Vellore</a>
+          </p>
+          <p>
+            As part of my Pluto development journey, I visited CMC Ranipet Hospital and observed firsthand how patients use Pluto for recovery. That experience helped me design more effective rehabilitation games and led to my successful development of a Pluto device testing software that logs all service and manufacturing test results.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section bg-dark" id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>My Projects</h2>
+      </div>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://youtu.be/q2vTwMB31L8" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Pluto: Neuro Rehab Game</h3>
+            <p>Therapy game system powered by real-time robotic input, used by patients for interactive hand rehabilitation. Designed using Unity to promote motion through engaging and adaptive gameplay based on sensor feedback.</p>
+            <div class="project-links">
+              <a href="https://youtu.be/q2vTwMB31L8" class="btn btn-primary-custom btn-sm" target="_blank">View Demo</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/VJDYpliqSPw" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Rush Compact (3D Multiplayer Game)</h3>
+            <p>Fast-paced FPS multiplayer game made using Photon PUN2. Built lobby systems, RPC-based shooting logic, input system integration, and polished game feel with postprocessing effects.</p>
+            <div class="project-links">
+              <a href="https://ahadms.itch.io/rushcompact" class="btn btn-primary-custom btn-sm" target="_blank">Play on Itch.io</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/yCzK3Bvy0uQ" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Blue Guy (2D Platformer)</h3>
+            <p>Platform game inspired by Mario with traps, waypoints-based enemy AI, sprite animations, health and physics systems. Built for WebGL and Android.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/2DPlatFormGame" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/2tTJMHDFBdQ" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Pro Driver (3D Car Parking Game)</h3>
+            <p>3D vehicle physics simulator with parking challenges. Features AI pedestrians, level system, timers, and city environments. Built with Unity's wheel colliders and custom controls.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/PRO-Driver" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 5 -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/q2vTwMB31L8" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Dead Zone (3D FPS Game)</h3>
+            <p>First-person shooter featuring sniper mechanics, cutscenes, blend trees, enemy AI with NavMesh, and weapon switching. Built terrain using Unity tools and added narrative with Timeline.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/DeadZoneShooter" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 6 -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/tBfV3S09UoQ" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>Bask It Right (AR Basketball Game)</h3>
+            <p>AR-based hoop shooting game using swipe gesture physics, score tracking, and custom AR raycast object placement. Built with Unity AR Foundation.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/BaskItRight" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 7 -->
+        <div class="project-card">
+          <div class="project-media">
+            <iframe src="https://www.youtube.com/embed/w7VqhzP2oT4" allowfullscreen></iframe>
+          </div>
+          <div class="project-content">
+            <h3>FlyBird (2D Endless Runner)</h3>
+            <p>Endless flappy-style 2D game with achievements, leaderboard system, Unity Ads integration, and global score tracking using PlayerPrefs.</p>
+            <div class="project-links">
+              <a href="https://github.com/ahadms/FlyBird" class="btn btn-primary-custom btn-sm" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+      </div>
+      <div class="contact-form">
+        <form action="https://formspree.io/f/mwpbwgjv" method="POST">
+          <div class="mb-3">
+            <label for="email" class="form-label">Your Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Your Message:</label>
+            <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary-custom w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">Ahad MS</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/ahad-ms/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/ahadms" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:ahadms1868@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Ahad MS. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Navbar background change on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+      } else {
+        navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.9)';
+      }
+    });
+  </script>
+</body>
+</html>
