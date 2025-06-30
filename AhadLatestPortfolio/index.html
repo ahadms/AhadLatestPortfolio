@@ -964,6 +964,7 @@
 
   <!-- Footer -->
  <!-- Updated Footer -->
+<!-- Updated Footer -->
 <footer>
   <div class="container">
     <div class="footer-logo">Ahad MS</div>
@@ -984,6 +985,52 @@
     </div>
   </div>
 </footer>
+
+<style>
+  /* Add this to your existing styles */
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links a {
+    color: var(--light);
+    transition: color 0.3s ease;
+    padding: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .footer-links a:hover {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 576px) {
+    .footer-links {
+      gap: 0.5rem;
+    }
+    
+    .footer-links a {
+      font-size: 0.9rem;
+      padding: 0.3rem;
+    }
+    
+    .social-links {
+      gap: 1rem;
+    }
+  }
+</style>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
