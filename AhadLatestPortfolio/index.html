@@ -218,6 +218,22 @@
       color: var(--primary);
     }
     
+/* Experience Certificate Button Styles */
+.experience-certificate {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experience-certificate .btn {
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+
+.experience-certificate .btn i {
+  margin-right: 0.5rem;
+}
+
     /* Projects Section */
     .projects-grid {
       display: grid;
@@ -271,6 +287,100 @@
       display: flex;
       gap: 1rem;
     }
+
+/* Education Section Styles */
+.education-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: var(--primary);
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  margin-left: -1px;
+}
+
+.education-item {
+  position: relative;
+  background-color: var(--gray);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  margin-left: 40px;
+  transition: all 0.3s ease;
+}
+
+.education-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 255, 157, 0.1);
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: -38px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  top: 24px;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.education-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.education-date {
+  color: var(--primary);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.institution {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.education-actions {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .education-timeline::before {
+    left: 15px;
+  }
+  
+  .education-item {
+    margin-left: 30px;
+  }
+  
+  .education-item::before {
+    left: -28px;
+  }
+  
+  .education-header {
+    flex-direction: column;
+  }
+  
+  .education-date {
+    margin-top: 0.5rem;
+  }
+}
 
     /* Testimonials Section */
 .testimonial-card {
@@ -659,26 +769,30 @@
       </div>
     </div>
     
-    <!-- Emergio Games Experience -->
-    <div class="experience-item" style="margin-top: 2.5rem;">
-      <div class="experience-header">
-        <h3>Emergio Games <span class="company-location">(Kakkanad, Kochi)</span></h3>
-        <span class="experience-date">May 2024 - Oct 2024</span>
-      </div>
-      <div class="experience-content">
-        <p class="company-description">
-          Unity Developer creating engaging gameplay experiences for mobile and PC platforms.
-        </p>
-        <ul class="experience-list">
-          <li><i class="fas fa-cogs"></i> Developed core gameplay systems and mechanics</li>
-          <li><i class="fas fa-mobile-alt"></i> Optimized performance for mobile platforms</li>
-          <li><i class="fas fa-paint-brush"></i> Collaborated with art/design teams</li>
-          <li><i class="fas fa-robot"></i> Implemented character controllers and AI</li>
-          <li><i class="fas fa-code-branch"></i> Maintained code standards through reviews</li>
-        </ul>
-      </div>
+   <!-- Emergio Games Experience -->
+<div class="experience-item" style="margin-top: 2.5rem;">
+  <div class="experience-header">
+    <h3>Emergio Games <span class="company-location">(Kakkanad, Kochi)</span></h3>
+    <span class="experience-date">May 2024 - Oct 2024</span>
+  </div>
+  <div class="experience-content">
+    <p class="company-description">
+      Unity Developer creating engaging gameplay experiences for mobile and PC platforms.
+    </p>
+    <ul class="experience-list">
+      <li><i class="fas fa-cogs"></i> Developed core gameplay systems and mechanics</li>
+      <li><i class="fas fa-mobile-alt"></i> Optimized performance for mobile platforms</li>
+      <li><i class="fas fa-paint-brush"></i> Collaborated with art/design teams</li>
+      <li><i class="fas fa-robot"></i> Implemented character controllers and AI</li>
+      <li><i class="fas fa-code-branch"></i> Maintained code standards through reviews</li>
+    </ul>
+    <div class="experience-certificate">
+      <a href="Emergio Games Experience Certificate.pdf" download="AhadMS_EmergioGames_Certificate.pdf" class="btn btn-outline-custom btn-sm">
+        <i class="fas fa-download"></i> Download Experience Certificate
+      </a>
     </div>
   </div>
+</div>
 </section>
 
 <style>
@@ -1038,6 +1152,55 @@
     </div>
   </section>
 
+
+  <!-- Education Section -->
+<section class="section" id="education">
+  <div class="container">
+    <div class="section-title">
+      <h2>Education</h2>
+    </div>
+    
+    <div class="education-timeline">
+      <!-- Unity Game Development -->
+      <div class="education-item">
+        <div class="education-header">
+          <h3>Unity Game Development</h3>
+          <span class="education-date">2023 - Present</span>
+        </div>
+        <div class="education-content">
+          <p class="institution">Brototype, Ernakulam</p>
+          <div class="education-actions">
+            <a href="Ahad M S_BCE114_Completion Certificate.pdf" download="AhadMS_UnityCertification.pdf" class="btn btn-outline-custom btn-sm">
+              <i class="fas fa-download"></i> Download Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- BCom Finance -->
+      <div class="education-item">
+        <div class="education-header">
+          <h3>BCom - Finance</h3>
+          <span class="education-date">2018 - 2021 (Ongoing)</span>
+        </div>
+        <div class="education-content">
+          <p class="institution">University of Calicut</p>
+        </div>
+      </div>
+      
+      <!-- Higher Secondary -->
+      <div class="education-item">
+        <div class="education-header">
+          <h3>Higher Secondary (Humanities)</h3>
+          <span class="education-date">2016 – 2018</span>
+        </div>
+        <div class="education-content">
+          <p class="institution">HSS Vazhakkulam, Ernakulam</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Testimonials Section -->
 <section class="section" id="testimonials">
